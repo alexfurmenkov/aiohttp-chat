@@ -1,3 +1,7 @@
 asyncio
 aiohttp
 requests
+peewee
+peewee_async
+aiopg
+PyJWT
