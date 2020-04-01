@@ -5,3 +5,5 @@ peewee
 peewee_async
 aiopg
 PyJWT
+jinja2
+aiohttp_jinja2
