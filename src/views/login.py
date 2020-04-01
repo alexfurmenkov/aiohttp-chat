@@ -21,10 +21,10 @@ class Login(View):
                 existing_user = await objects.get(User, login=login, password=password)
             except User.DoesNotExist:
                 returned_data = dict(
-                    status=400,
+                    status='fail',
                     message='User does not exist.'
                 )
-                return json_response(returned_data)
+                return json_response(returned_data, status=400)
 
             payload = dict(
                 user_id=existing_user.id,
@@ -33,8 +33,8 @@ class Login(View):
             jwt_token = jwt.encode(payload, self.JWT_SECRET, self.JWT_ALGORITHM)
 
             returned_data = dict(
-                status=200,
+                status='success',
                 message='You are successfully logged in.',
                 token=jwt_token.decode('utf-8')
             )
-            return json_response(returned_data)
+            return json_response(returned_data, status=200)
