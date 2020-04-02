@@ -1,15 +1,19 @@
-from aiohttp import web
+import aiohttp_jinja2
+from aiohttp.web import View
 
 
-async def home(request):
-    if request.user is None:
-        returned_data = dict(
-            status='success',
-            message='Hello from Server! You are not logged in!'
-        )
-    else:
-        returned_data = dict(
-            status='success',
-            message='Hello from Server! You are logged in!'
-        )
-    return web.json_response(returned_data, status=200)
+class Home(View):
+    @aiohttp_jinja2.template('index.html')
+    async def get(self):
+        if self.request.user is None:
+            return dict(
+                status='offline',
+                message='Nice to see you!',
+                button_text='Login',
+            )
+        else:
+            return dict(
+                status='online',
+                message=f'Hello, {self.request.user.login}',
+                button_text='Logout',
+            )

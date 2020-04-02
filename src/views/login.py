@@ -1,3 +1,4 @@
+import aiohttp_jinja2
 from aiohttp.web import View, json_response
 import jwt
 from datetime import datetime, timedelta
@@ -10,8 +11,12 @@ class Login(View):
     JWT_ALGORITHM = 'HS256'
     JWT_EXP_TIME = 100
 
+    @aiohttp_jinja2.template('login.html')
+    async def get(self):
+        pass
+
     async def post(self):
-        data = await self.request.post()
+        data = await self.request.json()
 
         if 'login' in data and 'password' in data:
             login = data['login']
@@ -35,6 +40,7 @@ class Login(View):
             returned_data = dict(
                 status='success',
                 message='You are successfully logged in.',
-                token=jwt_token.decode('utf-8')
+                token=jwt_token.decode('utf-8'),
+                redirect_link='/'
             )
             return json_response(returned_data, status=200)
