@@ -9,9 +9,8 @@ from src.db_settings import objects
 async def auth_middleware(app, handler):
     async def middleware(request):
         request.user = None
-        jwt_token = request.headers.get('authorization', None)
+        jwt_token = request.cookies.get('Authorization', None)
         if jwt_token:
-            jwt_token = jwt_token.split()[1]
             try:
                 payload = jwt.decode(jwt_token, Login.JWT_SECRET, algorithm=Login.JWT_ALGORITHM)
             except (jwt.DecodeError, jwt.ExpiredSignatureError):
