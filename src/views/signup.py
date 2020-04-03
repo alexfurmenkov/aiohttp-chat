@@ -42,6 +42,6 @@ class Signup(View):
             status='success',
             login=login,
             message='You are successfully registered!',
-            redirect_link='/login.html',
+            redirect_link='/login/',
         )
         return json_response(returned_data, status=200)
