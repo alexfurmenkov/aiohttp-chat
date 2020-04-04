@@ -13,7 +13,6 @@ TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'static', 'html')
 
 for static_route in static_routes:
     server.router.add_static(static_route[0], path=static_route[1], name=static_route[2])
-print(static_routes)
 
 for url_route in url_routes:
     server.router.add_route(url_route[0], url_route[1], url_route[2])
