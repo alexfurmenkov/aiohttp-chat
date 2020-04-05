@@ -1,6 +1,7 @@
 from src.views.home import Home
 from src.views.signup import Signup
 from src.views.login import Login
+from src.views.chat import Chat
 from src.views.websocket import WebSocket
 from src.middlewares.get_user import get_user
 
@@ -10,7 +11,8 @@ url_routes = [
     ('GET', '/user/', get_user),
     ('*', '/signup/', Signup),
     ('*', '/login/', Login),
-    ('GET', '/chat/', WebSocket),
+    ('*', '/chat/', Chat),
+    ('*', '/websocket/', WebSocket.websocket_handler),
 ]
 
 static_routes = [
