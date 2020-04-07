@@ -1,4 +1,5 @@
 from aiohttp import web, WSMsgType
+from src.models.message import Message
 
 
 class WebSocket(web.View):
@@ -18,6 +19,8 @@ class WebSocket(web.View):
                 if msg.data == 'close':
                     await ws.close()
                 else:
+                    message = Message(author_id=request.user, message=msg.data)
+                    message.save()
                     returned_data = dict(
                         user_login=request.user.login,
                         message=msg.data,
