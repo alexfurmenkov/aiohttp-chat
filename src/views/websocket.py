@@ -18,8 +18,12 @@ class WebSocket(web.View):
                 if msg.data == 'close':
                     await ws.close()
                 else:
+                    returned_data = dict(
+                        user_login=request.user.login,
+                        message=msg.data,
+                    )
                     for client in WebSocket.clients:
-                        await client.send_str(f'{request.user.login}: {msg.data}')
+                        await client.send_json(returned_data)
 
         print('Websocket connection closed')
         return ws
