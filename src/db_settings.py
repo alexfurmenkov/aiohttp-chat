@@ -1,6 +1,8 @@
 import peewee_async
-from src.models.base import database
-from src.models import *
+from src.db_data import database
+from src.models.base import BaseModel
+from src.models.user import User
+from src.models.message import Message
 
 
 database.connect()

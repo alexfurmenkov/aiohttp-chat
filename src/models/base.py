@@ -1,11 +1,5 @@
 import peewee
-import peewee_async
-
-database = peewee_async.PostgresqlDatabase('aiochat',
-                                           user='postgres',
-                                           password='postgres',
-                                           host='localhost',
-                                           port=5432)
+from src.db_data import database
 
 
 class BaseModel(peewee.Model):
