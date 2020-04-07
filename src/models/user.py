@@ -5,7 +5,6 @@ database = peewee_async.PostgresqlDatabase('aiochat', user='postgres', password=
 
 
 class User(peewee.Model):
-    """Base model with db Meta"""
 
     login = peewee.CharField(max_length=120)
     password = peewee.CharField(max_length=120)
