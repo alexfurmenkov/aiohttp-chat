@@ -5808,4 +5808,23 @@ h6 {
   font-size: 12px;
 }
 
+.messages-holder {
+  background-color: rgba(216,216,216,0.58);
+  height: 350px;
+  margin-bottom: 30px;
+  padding-top: 8px;
+  overflow-y: scroll;
+}
+
+.login {
+    background-color: rgba(190,190,190, 0.4);
+    color: rgba(139, 69, 19, 1);
+}
+
+.message {
+  background-color: rgba(190,190,190, 1);
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
 /*# sourceMappingURL=style.css.map */
