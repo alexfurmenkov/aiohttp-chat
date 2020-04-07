@@ -1,13 +1,9 @@
 import peewee
-import peewee_async
-
-database = peewee_async.PostgresqlDatabase('aiochat', user='postgres', password='postgres', host='localhost', port=5432)
+from .base import BaseModel
 
 
-class User(peewee.Model):
+class User(BaseModel):
 
     login = peewee.CharField(max_length=120)
     password = peewee.CharField(max_length=120)
 
-    class Meta:
-        database = database
