@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>wemeet</title>
+    <title>Alex Chat</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,14 +45,6 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
-                            <div class="main-menu  d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="Schedule.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
                         </div>
                         <div class="col-xl-2 col-lg-2 d-none d-lg-block">
                             <div class="buy_ticket">
@@ -63,6 +55,8 @@
                             <div class="buy_ticket">
                                 {% if button_text == 'Login' %}
                                 <a href="/signup/" class="boxed-btn-white">Sign Up</a>
+                                {% elif button_text == 'Logout' %}
+                                <a href="/chat/" class="boxed-btn-white">Chat</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -85,6 +79,15 @@
                         <div class="col-xl-9">
                             <div class="title_text">
                                 <h3>{{ message }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-9">
+                            <div class="buy_ticket">
+                                {% if button_text == 'Logout' %}
+                                <a href="/chat/" class="boxed-btn-white">Start Chatting!</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
