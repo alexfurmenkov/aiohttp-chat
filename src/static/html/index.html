@@ -30,7 +30,6 @@
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-
     <!-- header-start -->
     <header>
         <div class="header-area ">
@@ -39,25 +38,25 @@
                     <div class="row align-items-center justify-content-between no-gutters">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="/">
-                                    <img src="../img/logo.png" alt="">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6">
-                        </div>
-                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                            <div class="buy_ticket">
-                                <a href="/login/" class="boxed-btn-white" id="login-button">{{ button_text }}</a>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                            <div class="buy_ticket">
-                                {% if button_text == 'Login' %}
-                                <a href="/signup/" class="boxed-btn-white">Sign Up</a>
-                                {% elif button_text == 'Logout' %}
-                                <a href="/chat/" class="boxed-btn-white">Chat</a>
-                                {% endif %}
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                         <li><a href="/login/" id="login-button">{{ button_text }}</a></li>
+                                        <li>
+                                            {% if button_text == 'Login' %}
+                                            <a href="/signup/">Sign Up</a>
+                                            {% elif button_text == 'Logout' %}
+                                            <a href="/chat/" class="boxed-btn-white">Chat</a>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                         <div class="col-12">
