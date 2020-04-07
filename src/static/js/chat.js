@@ -9,6 +9,7 @@ form.submit.addEventListener('click', (e) => {
     e.preventDefault();
     var message = form.message.value;
     socket.send(message);
+    form.message.value = '';
 });
 
 function scrollDiv() {
