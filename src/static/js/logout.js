@@ -4,7 +4,7 @@ const logout_button = {
 if (logout_button.button.textContent === 'Logout') {
     logout_button.button.addEventListener('click', (e) => {
         e.preventDefault();
-        document.cookie = "Authorization=";
+        document.cookie = "Authorization=; path=/";
         window.location.href = "/";
     });
 }
