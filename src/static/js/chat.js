@@ -11,6 +11,13 @@ form.submit.addEventListener('click', (e) => {
     socket.send(message);
 });
 
+function scrollDiv() {
+    var element = document.getElementById("messages-holder");
+    element.scrollTop = element.scrollHeight;
+}
+
+scrollDiv();
+
 socket.onmessage = function (event) {
     let data = JSON.parse(event.data);
 
@@ -24,4 +31,7 @@ socket.onmessage = function (event) {
 
     document.getElementById("myList").appendChild(node_login);
     document.getElementById("myList").appendChild(node_message);
+
+    scrollDiv();
 };
+

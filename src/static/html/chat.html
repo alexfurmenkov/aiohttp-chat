@@ -117,8 +117,13 @@
     <section class="contact-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 messages-holder">
-                        <ul class="myList" id="myList"></ul>
+                    <div class="col-lg-12 messages-holder" id="messages-holder">
+                        <ul class="myList" id="myList">
+                            {% for message in messages %}
+                                <li class="login">{{ message.author.login }}</li>
+                                <li class="message">{{ message.message }}</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
                 <div class="row">
