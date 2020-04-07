@@ -9,9 +9,8 @@ class Chat(web.View):
     @login_required
     @aiohttp_jinja2.template('chat.html')
     async def get(self):
-        messages = await objects.execute(Message.select())
         return dict(
             status='online',
             button_text='Logout',
-            messages=messages,
+            messages=await objects.execute(Message.select()),
         )
