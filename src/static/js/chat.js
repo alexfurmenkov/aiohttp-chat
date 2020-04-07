@@ -12,9 +12,16 @@ form.submit.addEventListener('click', (e) => {
 });
 
 socket.onmessage = function (event) {
-    let data = event.data;
-    var node = document.createElement("LI");
-    var textnode = document.createTextNode(data);
-    node.appendChild(textnode);
-    document.getElementById("myList").appendChild(node);
+    let data = JSON.parse(event.data);
+
+    let node_login = document.createElement("LI");
+    node_login.className += "login";
+    node_login.appendChild(document.createTextNode(data.user_login));
+
+    let node_message = document.createElement("LI");
+    node_message.className += "message";
+    node_message.appendChild(document.createTextNode(data.message));
+
+    document.getElementById("myList").appendChild(node_login);
+    document.getElementById("myList").appendChild(node_message);
 };
