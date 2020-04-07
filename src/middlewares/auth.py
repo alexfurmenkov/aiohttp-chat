@@ -7,6 +7,12 @@ from src.db_settings import objects
 
 
 async def auth_middleware(app, handler):
+    """
+    Middleware to check if user is logged in or not
+    :param app:
+    :param handler: Request handler
+    :return: Request handler
+    """
     async def middleware(request):
         request.user = None
         jwt_token = request.cookies.get('Authorization', None)
