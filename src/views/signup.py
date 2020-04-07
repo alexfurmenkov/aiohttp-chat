@@ -1,7 +1,7 @@
 import aiohttp_jinja2
+from aiohttp.web import View, json_response
 
 from src.models.user import User
-from aiohttp.web import View, json_response
 from src.db_settings import objects
 
 
