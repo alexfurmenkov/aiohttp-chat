@@ -7,3 +7,4 @@ class Message(BaseModel):
 
     author = peewee.ForeignKeyField(User)
     message = peewee.TextField()
+    created_at = peewee.DateTimeField()
