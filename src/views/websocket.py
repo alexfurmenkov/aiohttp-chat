@@ -23,7 +23,7 @@ class WebSocket(web.View):
         service_message = dict(
             type='service',
             message=f'{request.user.login} joined',
-            time=f'{datetime.datetime.now().hour}: {datetime.datetime.now().minute}'
+            time=f'{datetime.datetime.now().hour}:{datetime.datetime.now().minute}'
         )
         await WebSocket.broadcast(service_message)
 
