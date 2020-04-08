@@ -22,17 +22,27 @@ scrollDiv();
 socket.onmessage = function (event) {
     let data = JSON.parse(event.data);
 
-    let node_login = document.createElement("LI");
-    node_login.className += "login";
-    node_login.appendChild(document.createTextNode(data.user_login));
+    if (data.type === 'service') {
+        let service_message = document.createElement("LI");
+        service_message.className += "service-message";
+        service_message.appendChild(document.createTextNode(data.message + " at " + data.time));
+        document.getElementById("myList").appendChild(service_message);
+    } else if (data.type === 'message') {
+        let login = document.createElement("LI");
+        let time = document.createElement("LI");
+        login.className += "login";
+        time.className += "time";
+        login.appendChild(document.createTextNode(data.user_login));
+        time.appendChild(document.createTextNode(data.time));
 
-    let node_message = document.createElement("LI");
-    node_message.className += "message";
-    node_message.appendChild(document.createTextNode(data.message));
+        let message = document.createElement("LI");
+        message.className += "message";
+        message.appendChild(document.createTextNode(data.message));
 
-    document.getElementById("myList").appendChild(node_login);
-    document.getElementById("myList").appendChild(node_message);
+        document.getElementById("myList").appendChild(login);
+        document.getElementById("myList").appendChild(message);
+        document.getElementById("myList").appendChild(time);
+    }
 
     scrollDiv();
 };
-

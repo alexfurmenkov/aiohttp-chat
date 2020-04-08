@@ -122,12 +122,13 @@
                             {% for message in messages %}
                                 <li class="login">{{ message.author.login }}</li>
                                 <li class="message">{{ message.message }}</li>
+                                <li class="time">{{ message.created_at.year }}-{{ message.created_at.month }}-{{ message.created_at.day }} at {{ message.created_at.hour }}:{{ message.created_at.minute }}</li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8" style="padding-left: 0;">
+                    <div class="col-lg-8" style="padding-left: 10px;">
                         <form class="form-contact contact_form" id="contactForm">
                             <div class="row">
                                 <div class="col-sm-6">
