@@ -37,7 +37,7 @@
             <div id="sticky-header" class="main-header-area ">
                 <div class="container-fluid p-0">
                     <div class="row align-items-center justify-content-between no-gutters">
-                        <div class="col-xl-2 col-lg-2">
+                        <div class="col-xl-4 col-lg-4">
                             <div class="logo-img">
                                 <a href="/">
                                     <img src="../img/logo.png" alt="">
@@ -45,25 +45,14 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
+                        </div>
+                        <div class="col-xl-2 col-lg-2">
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="Schedule.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="/logout/" id="login-button">Logout</a></li>
                                     </ul>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                            <div class="buy_ticket">
-                                <a href="/login/" class="boxed-btn-white" id="login-button">{{ button_text }}</a>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                            <div class="buy_ticket">
-                                {% if status == 'offline' %}
-                                <a href="/signup/" class="boxed-btn-white">Sign Up</a>
-                                {% endif %}
                             </div>
                         </div>
                         <div class="col-12">

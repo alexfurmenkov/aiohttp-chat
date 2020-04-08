@@ -47,7 +47,6 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                         <li><a href="/login/" id="login-button">{{ button_text }}</a></li>
                                         <li>
                                             {% if button_text == 'Login' %}
                                             <a href="/signup/">Sign Up</a>
@@ -55,6 +54,7 @@
                                             <a href="/chat/">Chat</a>
                                             {% endif %}
                                         </li>
+                                        <li><a href="/login/" id="login-button">{{ button_text }}</a></li>
                                     </ul>
                                 </nav>
                             </div>
