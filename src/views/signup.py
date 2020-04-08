@@ -35,8 +35,7 @@ class Signup(View):
                 return json_response(returned_data, status=400)
 
         except User.DoesNotExist:
-            user = User(login=login, password=password)
-            user.save()
+            await objects.create(User, login=login, password=password)
 
         returned_data = dict(
             status='success',

@@ -1,6 +1,7 @@
 from aiohttp import web, WSMsgType
 from src.models.message import Message
 import datetime
+from src.db_settings import objects
 
 
 class WebSocket(web.View):
@@ -17,11 +18,14 @@ class WebSocket(web.View):
         ws = web.WebSocketResponse()
         await ws.prepare(request)
         print('Websocket connection ready')
+
         WebSocket.clients.append(ws)
-        await WebSocket.broadcast({'type': 'service',
-                                   'message': f'{request.user.login} joined',
-                                   'time': f'{datetime.datetime.now().hour}:'
-                                           f'{datetime.datetime.now().minute}'})
+        service_message = dict(
+            type='service',
+            message=f'{request.user.login} joined',
+            time=f'{datetime.datetime.now().hour}: {datetime.datetime.now().minute}'
+        )
+        await WebSocket.broadcast(service_message)
 
         async for msg in ws:
             if msg.type == WSMsgType.TEXT:
@@ -29,8 +33,7 @@ class WebSocket(web.View):
                 if msg.data == 'close':
                     await ws.close()
                 else:
-                    message = Message(author_id=request.user, message=msg.data, created_at=datetime.datetime.now())
-                    message.save()
+                    await objects.create(Message, author_id=request.user, message=msg.data, created_at=datetime.datetime.now())
                     returned_data = dict(
                         type='message',
                         user_login=request.user.login,
