@@ -5,7 +5,7 @@
 2. Aiohttp 
 3. Postgres
 
-####Features:
+#### Features:
 1. Sign Up and Sign In
 2. Real time chatting in a public room
 
