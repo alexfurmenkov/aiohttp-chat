@@ -1,4 +1,4 @@
-# A simple real-time chat app 'Alex Chat'
+# A simple real-time chat app based on websockets 'Alex Chat'
 
 #### Stack: 
 1. Python 3.7
